@@ -4,7 +4,7 @@
         fs = require('fs'),
         Q = require('q'),
         csv = require("fast-csv"),
-        util = require('../util/index');
+        strings = require('../util/strings');
 
     var exports = module.exports = {};
 
@@ -28,7 +28,7 @@
     };
 
     exports.getLatLongForCity = function (city) {
-        city = util.strings.nullSafeLowerCase(city);
+        city = strings.nullSafeLowerCase(city);
         if (exports.localData && exports.localData[city]) {
             return exports.localData[city];
         }
