@@ -1,0 +1,12 @@
+{
+  "response": {
+    "statusCode": 400,
+    "body": {
+      "code": 400,
+      "error": "The given location (or time) is invalid."
+    }
+  },
+  "message": "[400] The given location (or time) is invalid.",
+  "name": "ForecastIoAPIError",
+  "request": "GET https://api.forecast.io/forecast/86e7c3c001ef209598d13321e590d6c0/abc,defgh"
+}
