@@ -1,9 +1,8 @@
 /**
- * Strings is a collection of string related functions used for formating.
+ * Strings is a collection of string related functions used for formatting.
  */
 (function () {
     'use strict';
-    var util = require('util');
     var exports = module.exports = {};
     /**
      * Left Pad a number 'number' of 'width' with prefix (default 0)...
