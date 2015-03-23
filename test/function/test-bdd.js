@@ -1,59 +1,185 @@
 (function () {
     'use strict';
 
-    var vows = require('vows'),
-        assert = require('assert'),
-        restify = require('restify');
+    var request = require('request'),
+        vows = require('vows'),
+        assert = require('assert');
 
-    var suite = vows.describe("Test Points for the application");
-
-    suite.addBatch({
-        'When calling moment with valid values': {
+    vows.describe('As the Customer, I want to get a weather forecast by location so I can determine if I need an umbrella or sun screen.').addBatch({
+        "As the Customer, I want to get a weather forecast by location for today": {
             topic: function () {
-                var client = restify.createJsonClient({
-                    url: 'https://127.0.0.1:9090',
-                    version: '*'
-                });
-                client.get('/weather/sydney/today', this.callback);
-                //var request = http.get("http://0.0.0.0:9090/weather/sydney/today", function (response) {
-                //    // data is streamed in chunks from the server
-                //    // so we have to handle the "data" event
-                //    var buffer = "",
-                //        data,
-                //        route;
-                //
-                //    response.on("data", function (chunk) {
-                //        buffer += chunk;
-                //    });
-                //
-                //    response.on("end", function (err) {
-                //        // finished transferring data
-                //        // dump the raw data
-                //        console.log(buffer);
-                //        console.log("\n");
-                //        data = JSON.parse(buffer);
-                //        route = data.routes[0];
-                //
-                //        // extract the distance and time
-                //        //console.log("Walking Distance: " + route.legs[0].distance.text);
-                //        //console.log("Time: " + route.legs[0].duration.text);
-                //    });
-                //
-                //});
+                request({
+                    uri: 'http://localhost:9090/weather/sydney',
+                    method: 'GET',
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                }, this.callback);
             },
-            'I expect a 403 response code.': function (err, req, res, data) {
-                /**
-                 function(err, req, res, obj) {
-                    assert.ifError(err);
-                    console.log('%j', obj);
-                }
-                 */
-                    // console.log('%d -> %j', result.statusCode, result.headers);
-                console.log(arguments);
+            "should respond with 200": function (err, res, body) {
+                assert.equal(res.statusCode, 200);
+            },
+            "should respond with a json body and time": function (err, res, body) {
+                var result = JSON.parse(body);
+                assert.ok(result.time );
+            }
+        },
+        "As the Customer, I want to get a weather forecast by location and filtered by day": {
+            topic: function () {
+                request({
+                    uri: 'http://localhost:9090/weather/sydney/saturday',
+                    method: 'GET',
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                }, this.callback);
+            },
+            "should respond with 200": function (err, res, body) {
+                assert.equal(res.statusCode, 200);
+            },
+            "should respond with a json body and time": function (err, res, body) {
+                var result = JSON.parse(body);
+                assert.ok(result.time );
+            }
+        },
+        "As the Customer, I want to get a weather forecast by location, filtered by the word *today*": {
+            topic: function () {
+                request({
+                    uri: 'http://localhost:9090/weather/sydney/today',
+                    method: 'GET',
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                }, this.callback);
+            },
+            "should respond with 200": function (err, res, body) {
+                assert.equal(res.statusCode, 200);
+            },
+            "should respond with a json body and time": function (err, res, body) {
+                var result = JSON.parse(body);
+                assert.ok(result.time );
             }
         }
-    });
+    }).export(module);
 
-    suite.run();
+    vows.describe('As the Front End Developer, I need to have the forecast data in either json and html format').addBatch({
+        "As the Front End Developer, I want to get a weather forecast by location for today in JSON": {
+            topic: function () {
+                request({
+                    uri: 'http://localhost:9090/weather/sydney',
+                    method: 'GET',
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                }, this.callback);
+            },
+            "should respond with 200": function (err, res, body) {
+                assert.equal(res.statusCode, 200);
+            },
+            "should respond with a json body and time": function (err, res, body) {
+                var result = JSON.parse(body);
+                assert.ok(result.time );
+            }
+        },
+        "As the Front End Developer, I want to get a weather forecast by location and filtered by day in JSON": {
+            topic: function () {
+                request({
+                    uri: 'http://localhost:9090/weather/sydney/saturday',
+                    method: 'GET',
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                }, this.callback);
+            },
+            "should respond with 200": function (err, res, body) {
+                assert.equal(res.statusCode, 200);
+            },
+            "should respond with a json body and time": function (err, res, body) {
+                var result = JSON.parse(body);
+                assert.ok(result.time );
+            }
+        },
+        "As the Front End Developer, I want to get a weather forecast by location, filtered by the word *today* in JSON": {
+            topic: function () {
+                request({
+                    uri: 'http://localhost:9090/weather/sydney/today',
+                    method: 'GET',
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                }, this.callback);
+            },
+            "should respond with 200": function (err, res, body) {
+                assert.equal(res.statusCode, 200);
+            },
+            "should respond with a json body and time": function (err, res, body) {
+                var result = JSON.parse(body);
+                assert.ok(result.time );
+            }
+        },
+        "As the Front End Developer, I want to get a weather forecast by location for today in html": {
+            topic: function () {
+                request({
+                    uri: 'http://localhost:9090/weather/sydney',
+                    method: 'GET',
+                    headers: {
+                        'Accept': 'text/html'
+                    }
+                }, this.callback);
+            },
+            "should respond with 200": function (err, res, body) {
+                assert.equal(res.statusCode, 200);
+            },
+            "should respond with a json body and time": function (err, res, body) {
+                assert.ok( body );
+                var index = body.search('<html>');
+                assert.notEqual (index, -1);
+                index = body.search('</html>');
+                assert.notEqual (index, -1);
+            }
+        },
+        "As the Front End Developer, I want to get a weather forecast by location and filtered by day in html": {
+            topic: function () {
+                request({
+                    uri: 'http://localhost:9090/weather/sydney/saturday',
+                    method: 'GET',
+                    headers: {
+                        'Accept': 'text/html'
+                    }
+                }, this.callback);
+            },
+            "should respond with 200": function (err, res, body) {
+                assert.equal(res.statusCode, 200);
+            },
+            "should respond with a json body and time": function (err, res, body) {
+                assert.ok( body );
+                var index = body.search('<html>');
+                assert.notEqual (index, -1);
+                index = body.search('</html>');
+                assert.notEqual (index, -1);
+            }
+        },
+        "As the Front End Developer, I want to get a weather forecast by location, filtered by the word *today* in HTML": {
+            topic: function () {
+                request({
+                    uri: 'http://localhost:9090/weather/sydney/today',
+                    method: 'GET',
+                    headers: {
+                        'Accept': 'text/html'
+                    }
+                }, this.callback);
+            },
+            "should respond with 200": function (err, res, body) {
+                assert.equal(res.statusCode, 200);
+            },
+            "should respond with a json body and time": function (err, res, body) {
+                assert.ok( body );
+                var index = body.search('<html>');
+                assert.notEqual (index, -1);
+                index = body.search('</html>');
+                assert.notEqual (index, -1);
+            }
+        }
+    }).export(module);
 
 }());
