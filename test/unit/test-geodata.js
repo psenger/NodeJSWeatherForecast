@@ -106,8 +106,6 @@
                 }
             }
         }
-    });
-
-    suite.run();
+    }).export(module);
 
 }());
