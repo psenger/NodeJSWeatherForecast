@@ -58,7 +58,7 @@
                                         var outbound = data.daily.data[i];
                                         // outbound.mydate = moment.unix(data.daily.data[i].time).toISOString();
                                         res.send(outbound);
-                                        next();
+                                        return next();
                                     }
                                 }
                             }
