@@ -5,7 +5,7 @@
   "main": "./bin/launch.js",
   "scripts": {
     "start": "nodemon bin/launch.js",
-    "test": "istanbul cover vows test/unit/test-*.js --spec"
+    "test": "vows test/unit/test-*.js --spec"
   },
   "repository": {
     "type": "git",

@@ -38,8 +38,6 @@
                 assert.equal(result[6], 'Sunday');
             }
         }
-    });
-
-    suite.run();
+    }).export(module);
 
 }());

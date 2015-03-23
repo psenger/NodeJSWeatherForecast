@@ -65,8 +65,7 @@
                 assert.equal(err.name, 'ForecastIoError');
             }
         }
-    });
+    }).export(module);
 
-    suite.run();
 
 }());
