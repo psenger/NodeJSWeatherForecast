@@ -5,7 +5,7 @@
 Written by Philip A Senger
 
 [philip.a.senger@cngrgroup.com](mailto:philip.a.senger@cngrgroup.com) |
-[mobile](0406770664) |
+mobile: 0406770664 |
 [CV/Resume](http://www.visualcv.com/philipsenger) |
 [blog](http://www.apachecommonstipsandtricks.blogspot.com/) |
 [LinkedIn](http://au.linkedin.com/in/philipsenger) |
@@ -55,3 +55,4 @@ I decided to create a single instance of GeoData, and wait to start the app unti
 ## Data
 
 As mentioned above, Forecast.io does not support city names, it only supports Lat/Long. Rather than find a third party for Geo Location or use a NPM module, I downloaded a City Name Lat Long look up from http://download.geonames.org/export/dump/ and trimmed the data. It has duplicate cities in the data and is located in the module app/data/data-sm.csv the original download is located app/data/data.csv
+ 
