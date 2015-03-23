@@ -29,7 +29,7 @@
 
     exports.getLatLongForCity = function (city) {
         city = util.strings.nullSafeLowerCase(city);
-        if (exports.localData[city]) {
+        if (exports.localData && exports.localData[city]) {
             return exports.localData[city];
         }
         return null;
