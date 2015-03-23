@@ -1,5 +1,7 @@
 # News Corp Weather Forecast
 
+[![Build Status](https://travis-ci.org/psenger/NewsCorpWeatherForecast.svg)](https://travis-ci.org/psenger/NewsCorpWeatherForecast)
+
 Written by Philip A Senger
 
 [philip.a.senger@cngrgroup.com](mailto:philip.a.senger@cngrgroup.com) |
