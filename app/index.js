@@ -6,7 +6,7 @@
         restify = require('restify'),
         conf = require('./util/conf'),
         logger = require('./util/logger'),
-        geodata = require('../app/data/geodata'),
+        geodata = require('./data/geodata'),
         stdSerializers = require('bunyan').stdSerializers,
         log = require('bunyan').createLogger({
             src: true,  // @todo: extract the src:true to a configuration, and turn it off in production
@@ -56,17 +56,6 @@
             }
         }
     };
-
-    _.defaults(options, {}); // place holder for potential SSL
-
-
-// -- Start Verify Connection to http://forecast.io/
-//    var deferred = Q.defer();
-//    setTimeout(function () {
-//
-//
-//    }, 0);
-// -- End Verify Connection to http://forecast.io/
 
     console.log('APIKEY detected as ', conf.get('APIKEY'));
 
