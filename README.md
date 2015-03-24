@@ -5,7 +5,7 @@
 Written by Philip A Senger
 
 [philip.a.senger@cngrgroup.com](mailto:philip.a.senger@cngrgroup.com) |
-[mobile](0406770664) |
+mobile: 0406770664 |
 [CV/Resume](http://www.visualcv.com/philipsenger) |
 [blog](http://www.apachecommonstipsandtricks.blogspot.com/) |
 [LinkedIn](http://au.linkedin.com/in/philipsenger) |
@@ -55,3 +55,42 @@ I decided to create a single instance of GeoData, and wait to start the app unti
 ## Data
 
 As mentioned above, Forecast.io does not support city names, it only supports Lat/Long. Rather than find a third party for Geo Location or use a NPM module, I downloaded a City Name Lat Long look up from http://download.geonames.org/export/dump/ and trimmed the data. It has duplicate cities in the data and is located in the module app/data/data-sm.csv the original download is located app/data/data.csv
+ 
+# Running 
+
+There are two environment variables that determine the configuration files hierarchy and user overrides. They are:
+
+    NODE_ENV
+    USER
+
+## CONF environment properties
+
+Configuration files located in **conf** directory serve the following function:
+ 
+- properties in conf/global.json applies globally
+- properties in conf/development.json applies to Development when *NODE_ENV* is set to development
+- properties in conf/production.json applies to Production when *NODE_ENV* is set to production
+- properties in conf/test.json applies to Testing when *NODE_ENV* is set to test
+
+As the name global implies, there is a level of hierarchy.
+
+	Argv <-overridden by- Env <-overridden by- NODE_ENV <-overridden by- Global <-overridden by- User
+
+## CONF/.USER user override properties
+
+Files in **conf/.user** directory serve the following function:
+
+User specific values can override the given environment values. This only occurs when *USER* is set. the Travis CI system uses travis.json, and any files placed in here are ignored by git.
+
+## properties
+
+	"port" : 9090 <- indicates the http port number
+ 	"APIKEY": "set this value" <- should be set to the API KEY from forecast.io
+
+# Testing
+
+Unit tests can be run by the NPM command test
+
+	npm install
+	npm test
+ 
