@@ -4,7 +4,7 @@
   "description": "News Corp Weather Forecast",
   "main": "bin/launch.js",
   "scripts": {
-    "start": "node bin/launch.js",
+    "start": "bin/launch.js",
     "test": "istanbul cover vows test/unit/test-*.js --spec"
   },
   "repository": {
