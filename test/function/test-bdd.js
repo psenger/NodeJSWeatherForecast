@@ -5,11 +5,13 @@
         vows = require('vows'),
         assert = require('assert');
 
+    var testServerHost = process.env.TESTSERVERHOST || "https://serene-everglades-5941.herokuapp.com";
+    
     vows.describe('As the Customer, I want to get a weather forecast by location so I can determine if I need an umbrella or sun screen.').addBatch({
         "As the Customer, I want to get a weather forecast by location for today": {
             topic: function () {
                 request({
-                    uri: 'http://localhost:9090/weather/sydney',
+                    uri: testServerHost + '/weather/sydney',
                     method: 'GET',
                     headers: {
                         'Accept': 'application/json'
@@ -27,7 +29,7 @@
         "As the Customer, I want to get a weather forecast by location and filtered by day": {
             topic: function () {
                 request({
-                    uri: 'http://localhost:9090/weather/sydney/saturday',
+                    uri: testServerHost + '/weather/sydney/saturday',
                     method: 'GET',
                     headers: {
                         'Accept': 'application/json'
@@ -45,7 +47,7 @@
         "As the Customer, I want to get a weather forecast by location, filtered by the word *today*": {
             topic: function () {
                 request({
-                    uri: 'http://localhost:9090/weather/sydney/today',
+                    uri: testServerHost + '/weather/sydney/today',
                     method: 'GET',
                     headers: {
                         'Accept': 'application/json'
@@ -66,7 +68,7 @@
         "As the Front End Developer, I want to get a weather forecast by location for today in JSON": {
             topic: function () {
                 request({
-                    uri: 'http://localhost:9090/weather/sydney',
+                    uri: testServerHost + '/weather/sydney',
                     method: 'GET',
                     headers: {
                         'Accept': 'application/json'
@@ -84,7 +86,7 @@
         "As the Front End Developer, I want to get a weather forecast by location and filtered by day in JSON": {
             topic: function () {
                 request({
-                    uri: 'http://localhost:9090/weather/sydney/saturday',
+                    uri: testServerHost + '/weather/sydney/saturday',
                     method: 'GET',
                     headers: {
                         'Accept': 'application/json'
@@ -102,7 +104,7 @@
         "As the Front End Developer, I want to get a weather forecast by location, filtered by the word *today* in JSON": {
             topic: function () {
                 request({
-                    uri: 'http://localhost:9090/weather/sydney/today',
+                    uri: testServerHost + '/weather/sydney/today',
                     method: 'GET',
                     headers: {
                         'Accept': 'application/json'
@@ -120,7 +122,7 @@
         "As the Front End Developer, I want to get a weather forecast by location for today in html": {
             topic: function () {
                 request({
-                    uri: 'http://localhost:9090/weather/sydney',
+                    uri: testServerHost + '/weather/sydney',
                     method: 'GET',
                     headers: {
                         'Accept': 'text/html'
@@ -141,7 +143,7 @@
         "As the Front End Developer, I want to get a weather forecast by location and filtered by day in html": {
             topic: function () {
                 request({
-                    uri: 'http://localhost:9090/weather/sydney/saturday',
+                    uri: testServerHost + '/weather/sydney/saturday',
                     method: 'GET',
                     headers: {
                         'Accept': 'text/html'
@@ -162,7 +164,7 @@
         "As the Front End Developer, I want to get a weather forecast by location, filtered by the word *today* in HTML": {
             topic: function () {
                 request({
-                    uri: 'http://localhost:9090/weather/sydney/today',
+                    uri: testServerHost + '/weather/sydney/today',
                     method: 'GET',
                     headers: {
                         'Accept': 'text/html'
