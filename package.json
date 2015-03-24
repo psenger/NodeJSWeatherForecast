@@ -7,6 +7,9 @@
     "start": "node bin/launch.js",
     "test": "istanbul cover vows test/unit/test-*.js --spec"
   },
+  "engines": {
+    "node": "0.10.x"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/psenger/NewsCorpWeatherForecast.git"
