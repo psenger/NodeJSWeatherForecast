@@ -95,20 +95,19 @@ Unit tests can be run by the NPM command test
 	npm test
 
 # Heroku
-
-        Philips-MBP:~ psenger$ cd Documents/Dev/NewsCorpWeatherForecast/
-        Philips-MBP:NewsCorpWeatherForecast psenger$ heroku login
+ 
+        $ heroku login
         Enter your Heroku credentials.
-        Email: philip.a.senger@cngrgroup.com
+        Email: xxxxxxxxxxxxx
         Password (typing will be hidden):
         Authentication successful.
 
         updating...done. Updated to 3.30.3
-        Philips-MBP:NewsCorpWeatherForecast psenger$ heroku create
+        $ heroku create
         Creating pacific-citadel-2778... done, stack is cedar-14
         https://pacific-citadel-2778.herokuapp.com/ | https://git.heroku.com/pacific-citadel-2778.git
         Git remote heroku added
-        Philips-MBP:NewsCorpWeatherForecast psenger$ git push heroku master
+        $ git push heroku master
         Counting objects: 135, done.
         Delta compression using up to 8 threads.
         Compressing objects: 100% (125/125), done.
@@ -276,6 +275,6 @@ Unit tests can be run by the NPM command test
         remote: Verifying deploy... done.
         To https://git.heroku.com/pacific-citadel-2778.git
          * [new branch]      master -> master
-        Philips-MBP:NewsCorpWeatherForecast psenger$ heroku ps:scale web=1
+        $ heroku ps:scale web=1
         Scaling dynos... done, now running web at 1:1X.
-        Philips-MBP:NewsCorpWeatherForecast psenger$ heroku open
+        $ heroku open
