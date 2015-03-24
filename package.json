@@ -2,9 +2,9 @@
   "name": "NewsCorpWeatherForecast",
   "version": "1.0.0",
   "description": "News Corp Weather Forecast",
-  "main": "./bin/launch.js",
+  "main": "bin/launch.js",
   "scripts": {
-    "start": "nodemon bin/launch.js",
+    "start": "node bin/launch.js",
     "test": "istanbul cover vows test/unit/test-*.js --spec"
   },
   "repository": {
