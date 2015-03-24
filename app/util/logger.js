@@ -10,7 +10,8 @@
     var accessLogName = "access-" + now.getFullYear() + "-" + strings.lpad(now.getMonth(), 2) + "-" + strings.lpad(now.getDate(), 2) + ".log";
     var errorLogName = "error-" + now.getFullYear() + "-" + strings.lpad(now.getMonth(), 2) + "-" + strings.lpad(now.getDate(), 2) + ".log";
 
-    if (!fs.existsSync(__dirname + '/../../log')){
+    var dir = __dirname + '/../../log';
+    if (!fs.existsSync(dir)){
         fs.mkdirSync(dir);
     }
 
