@@ -50,7 +50,7 @@
                         if (data) {
                             if (weekday === 'today') {
                                 res.send(data.currently);
-                                next();
+                                return next();
                             } else {
                                 for (var i = 0; i < data.daily.data.length; i++) {
                                     var day = util.strings.nullSafeLowerCase(moment.weekdays(moment.unix(data.daily.data[i].time).day()));
