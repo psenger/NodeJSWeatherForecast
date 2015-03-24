@@ -9,6 +9,11 @@
     var now = new Date();
     var accessLogName = "access-" + now.getFullYear() + "-" + strings.lpad(now.getMonth(), 2) + "-" + strings.lpad(now.getDate(), 2) + ".log";
     var errorLogName = "error-" + now.getFullYear() + "-" + strings.lpad(now.getMonth(), 2) + "-" + strings.lpad(now.getDate(), 2) + ".log";
+
+    if (!fs.existsSync(__dirname + '/../../log')){
+        fs.mkdirSync(dir);
+    }
+
     var accessLogStream = fs.createWriteStream(__dirname + '/../../log/' + accessLogName, {
             flags: 'a'
         }
