@@ -95,6 +95,8 @@ Unit tests can be run by the NPM command test
 	npm test
 
 # Heroku
+
+These steps show how to use Heroku
  
         $ heroku login
         Enter your Heroku credentials.
