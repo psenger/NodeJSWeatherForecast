@@ -1,6 +1,6 @@
 # Node JS Weather Forecast
 
-[![Build Status](https://travis-ci.org/psenger/NewsCorpWeatherForecast.svg)](https://travis-ci.org/psenger/NewsCorpWeatherForecast)
+[![Build Status](https://travis-ci.org/psenger/NodeJSWeatherForecast.svg?branch=master)](https://travis-ci.org/psenger/NodeJSWeatherForecast)
 
 Written by Philip A Senger
 
@@ -12,7 +12,7 @@ mobile: 0406770664 |
 [twitter](http://twitter.com/PSengerDownUndr)
 
 
-This application is a sample rest application designed to pull Forecast data from forecast.io, based on the city location and weekday. Additionally, send the data back to the user in the form of either JSON or HTML.
+This application is a simple NodeJS REST application designed to pull weather forecast data from forecast.io, based on the city location and weekday. Additionally, send the data back to the user in the form of either JSON or HTML.
 
 ## Issues
 
