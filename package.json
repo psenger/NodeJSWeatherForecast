@@ -12,10 +12,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/psenger/NewsCorpWeatherForecast.git"
+    "url": "https://github.com/psenger/NodeJSWeatherForecast.git"
   },
   "keywords": [
-    "NewsCorp",
+    "NodeJS",
     "Weather",
     "Forecast.io"
   ],

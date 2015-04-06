@@ -1,4 +1,4 @@
-# News Corp Weather Forecast
+# Node JS Weather Forecast
 
 [![Build Status](https://travis-ci.org/psenger/NewsCorpWeatherForecast.svg)](https://travis-ci.org/psenger/NewsCorpWeatherForecast)
 
